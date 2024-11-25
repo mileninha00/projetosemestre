@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Listar Movimentação{% endblock %}
+
+{% block content %}
+<h2>{% if object %}Editar{% else %}Nova{% endif %} Movimentação</h2>
+<form class="form" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btnv" type="submit">Salvar</button>
+    <a class="btn"href="{% url 'movimentacao_list' %}">Cancelar</a>
+</form>
+{% endblock %}

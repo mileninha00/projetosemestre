@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}{% endblock %}
+
+{% block content %}
+
+<h1>Editar Perfil</h1>
+   
+<form class="form" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}  <!-- Exibe o formulário -->
+    <button class="btnv" type="submit">Salvar Alterações</button>
+</form>
+
+<a class="back" href="{% url 'produto_list' %}">Voltar para a página inicial</a>
+{% endblock %}
+

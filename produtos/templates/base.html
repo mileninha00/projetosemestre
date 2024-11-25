@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%block title%}Projeto Modelo{%endblock%}</title>
+    {%load static%} 
+    <link rel="stylesheet" href="{%static 'css/estilo.css'%}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <header>
+    <div class="esquerda">
+        <a href="{% url 'homepage'%}"> <img class="logo"  src="{% static 'img/logosite1.png' %}" alt=""></a>
+        <a class="btn" href="{% url 'edit_profile' %}"><img class="perfil" src="/static/img/perfil.png" alt=""></a>
+        <a class="btn" href="{% url 'produto_list' %}">Produtos</a>
+        <a class="btn" href="{% url 'categoria_list' %}">Categoria</a>
+        <a class="btn" href="{% url 'movimentacao_list' %}">Movimentação</a>
+        
+    </div>
+    <div class="direita">
+        
+        <img class="milena" src="{% static 'img/milenasoro.png' %}" alt="">
+        <form action="{% url 'logout' %}" method="post" style="display: inline; border:none;background:none;">
+            {% csrf_token %}
+
+        </form>
+
+    </div>
+
+    </header>
+    <div class="container">
+    {%block content%}{%endblock%}
+    </div>
+
+    <footer>
+        <img class="senai"  src="{% static 'img/logo-senai.png' %}" alt=""style="width: 10vw; height:6vh; justify-self: center; align-itens:center;">
+    </footer>
+</body>
+</html>

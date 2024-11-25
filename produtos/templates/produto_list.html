@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Lista de Produtos{% endblock %}
+
+{% block content %}
+    <h2>Lista de Produtos</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Imagem</th>
+                <th>Nome</th>
+                <th>Preço</th>
+                <th>Categoria</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for produto in object_list %}
+            <tr>
+                <td>
+                    {% if produto.imagem.url is not None %}
+                    <img src="{{produto.imagem.url}}" alt="" width="80px">
+                    {% else %}
+                    <p> produto sem foto </p>
+                    {% endif %}
+                </td>
+                <td>{{ produto.nome }}</td>
+                <td>R$ {{ produto.preco }}</td>
+                <td>{{ produto.categoria.nome }}</td>
+                <td>
+                    <a href="{% url 'produto_update' produto.pk %}"><i class="bi bi-pencil-square"></i></a>
+                    <a href="{% url 'produto_delete' produto.pk %}"><i class="bi bi-trash"></i></a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">Nenhum produto cadastrado.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn"href="{% url 'produto_create' %}">Novo Produto</a>
+    <a class="btn"href="{% url 'categoria_create' %}">Cadastrar Categoria</a>
+{% endblock %}
