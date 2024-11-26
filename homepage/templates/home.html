@@ -1,24 +1,33 @@
 {% extends 'base.html' %}
 {% block title %}Perfil{% endblock %}
 {% block content %}
-
-
 <div class="table-container">
-    <h1>Bem-vindo, {{ user.first_name }} {{ user.last_name }}!</h1>
-    <h2>Últimos 10 Produtos e Saldo de Estoque</h2>
-<table>
-    <tr>
-        <th>Produto</th>
-        <th>Preço</th>
-        <th>Saldo em Estoque</th>
-    </tr>
+    
+    <div class="headline">
+        <h1>TeckStock Solutions</h1>
+    </div>
+    <div class ="text">
+         <h2>SEJA BEM-VINDO!</h2>
+         <p>TechStock Solutions é uma plataforma inovadora para gestão de estoques, permitindo o registro de produtos, o controle de movimentações e a categorização dos itens. Com soluções práticas e eficientes, a empresa oferece controle total sobre o estoque, ajudando negócios de todos os tamanhos a manter a organização e a precisão nas operações. </p>
+    </div>
+
+
+    <div class="cardlist">
+    
+        
     {% for produto in produtos %}
-    <tr>
-        <td>{{ produto.nome }}</td>
-        <td>R$ {{ produto.preco }}</td>
-        <td>{{ produto.saldo|default:"0" }} unidades</td>
-    </tr>
+
+    <div class="card">
+        <img src="{{produto.imagem.url}}" alt="">
+        <h2>{{ produto.nome }}</h2>
+         <p>R$ {{ produto.preco }}</p>
+        <small>
+            {{ produto.saldo|default:"0" }} unidades
+        </small>
+    </div>
     {% endfor %}
-</table>
+
+    </div>
+
 </div>
 {% endblock %}

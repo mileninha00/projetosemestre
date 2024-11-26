@@ -2,6 +2,7 @@
 {% block title %}Listar Movimentação{% endblock %}
 
 {% block content %}
+<div class="espaco"></div>
 <h2>{% if object %}Editar{% else %}Nova{% endif %} Movimentação</h2>
 <form class="form" method="post">
     {% csrf_token %}

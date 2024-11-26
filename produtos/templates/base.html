@@ -12,19 +12,21 @@
     <header>
     <div class="esquerda">
         <a href="{% url 'homepage'%}"> <img class="logo"  src="{% static 'img/logosite1.png' %}" alt=""></a>
-        <a class="btn" href="{% url 'edit_profile' %}"><img class="perfil" src="/static/img/perfil.png" alt=""></a>
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="menu-toggle">☰</label>
+        
+        <nav class="menu">
+                   
+      
         <a class="btn" href="{% url 'produto_list' %}">Produtos</a>
         <a class="btn" href="{% url 'categoria_list' %}">Categoria</a>
         <a class="btn" href="{% url 'movimentacao_list' %}">Movimentação</a>
+    </nav>
+</div>
         
-    </div>
-    <div class="direita">
-        
-        <img class="milena" src="{% static 'img/milenasoro.png' %}" alt="">
-        <form action="{% url 'logout' %}" method="post" style="display: inline; border:none;background:none;">
-            {% csrf_token %}
 
-        </form>
+    <div class="direita">
+        <a class="btn" href="{% url 'profile' %}"><i style="color:white" class="bi bi-person-bounding-box"></i></a>
 
     </div>
 
@@ -34,7 +36,9 @@
     </div>
 
     <footer>
-        <img class="senai"  src="{% static 'img/logo-senai.png' %}" alt=""style="width: 10vw; height:6vh; justify-self: center; align-itens:center;">
+        <div class="senai">
+        <img src="{% static 'img/logo-senai.png' %}" alt="">
+        </div>
     </footer>
 </body>
 </html>
